@@ -14,7 +14,7 @@
   "scripts": {
     "db:introspect": "dotenv -- prisma db pull",
     "db:generate": "dotenv -- prisma migrate",
-    "postinstall": "tsc && cp src/index.d.ts dist/index.d.ts && npx prisma generate",
+    "postinstall": "npx prisma generate && tsc && cp src/index.d.ts dist/index.d.ts",
     "test": "exit 0"
   },
   "author": "secondubly",
