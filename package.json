@@ -1,0 +1,21 @@
+{
+  "name": "@secondubly/digittron-db",
+  "version": "1.0.0",
+  "description": "secondubly's server schema for digittron",
+  "main": "index.js",
+  "scripts": {
+    "db:introspect": "dotenv -- prisma db pull",
+    "db:generate": "dotenv -- prisma migrate",
+    "postinstall": "tsc && cp src/index.d.ts dist/index.d.ts && npx prisma generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "secondubly",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv-cli": "^7.3.0",
+    "prisma": "^5.6.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.6.0"
+  }
+}
