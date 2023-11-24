@@ -2,10 +2,10 @@
   "name": "@secondubly/digittron-db",
   "version": "1.0.0",
   "description": "secondubly's server schema for digittron",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/secondubly/digittron-db.git"
+    "url": "git+https://github.com/secondubly/digittron-db.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
