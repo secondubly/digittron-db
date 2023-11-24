@@ -1,6 +1,6 @@
 {
   "name": "@secondubly/digittron-db",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "secondubly's server schema for digittron",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
