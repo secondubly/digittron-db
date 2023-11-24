@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/secondubly/digittron-db.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "db:introspect": "dotenv -- prisma db pull",
     "db:generate": "dotenv -- prisma migrate",
