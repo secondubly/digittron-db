@@ -8,13 +8,13 @@
     "url": "git+https://github.com/secondubly/digittron-db.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@secondubly/registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "db:introspect": "dotenv -- prisma db pull",
     "db:generate": "dotenv -- prisma migrate",
     "postinstall": "tsc && cp src/index.d.ts dist/index.d.ts && npx prisma generate",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "exit 0"
   },
   "author": "secondubly",
   "license": "ISC",
