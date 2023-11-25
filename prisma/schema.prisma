@@ -7,10 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model command_permissions {
+model CommandPermission {
   name     String          @id @db.VarChar(255)
   level    PermissionLevel @default(VIEWER)
   commands commands?
+
+  @@map("command_permissions")
 }
 
 model commands {
@@ -20,7 +22,9 @@ model commands {
   enabled             Boolean             @default(true)
   visible             Boolean             @default(true)
   id                  Int                 @default(autoincrement())
-  command_permissions command_permissions @relation(fields: [name], references: [name], onDelete: Cascade)
+  command_permissions CommandPermission @relation(fields: [name], references: [name], onDelete: Cascade)
+
+  @@map("commands")
 }
 
 model settings {
@@ -31,6 +35,7 @@ model settings {
   value         Json?  @default("null") @db.Json
 
   @@unique([id, name])
+  @@map("settings")
 }
 
 enum PermissionLevel {
