@@ -7,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// user is a reserved keyword in postgres, this will let us bypass this annoying issue
 model User_ {
   id           String    @id @unique
   username     String    @unique
