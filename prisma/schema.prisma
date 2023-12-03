@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User_ {
+model User {
   id           String    @id @unique
   username     String    @unique
   key          Key[]
   auth_session Session[]
 
-  @@map("user")
+  @@map("user_")
 }
 
 model Session {
@@ -21,7 +21,7 @@ model Session {
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
-  user           User_  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user           User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("session")
@@ -31,7 +31,7 @@ model Key {
   id              String  @id @unique
   hashed_password String?
   user_id         String
-  user            User_   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user            User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("key")

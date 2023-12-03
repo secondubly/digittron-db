@@ -1,1 +1,1 @@
--- This is an empty migration.
+ALTER TABLE IF EXISTS "user" RENAME TO "user_";
