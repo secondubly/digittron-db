@@ -8,7 +8,8 @@ datasource db {
 }
 
 
-model User {
+// user is a reserved keyword in postgres, this will let us bypass this annoying issue
+model User_ {
   id           String    @id @unique
   username     String    @unique
   auth_session Session[]
@@ -23,7 +24,7 @@ model Session {
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
-  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user           User_   @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("session")
@@ -33,7 +34,7 @@ model Key {
   id              String  @id @unique
   hashed_password String?
   user_id         String
-  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user            User_    @relation(references: [id], fields: [user_id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("key")
