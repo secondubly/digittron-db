@@ -7,24 +7,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 // user is a reserved keyword in postgres, this will let us bypass this annoying issue
 model User_ {
   id           String    @id @unique
   username     String    @unique
-  auth_session Session[]
   key          Key[]
+  auth_session Session[]
 
   @@map("user")
 }
-
 
 model Session {
   id             String @id @unique
   user_id        String
   active_expires BigInt
   idle_expires   BigInt
-  user           User_   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user           User_  @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("session")
@@ -34,12 +32,11 @@ model Key {
   id              String  @id @unique
   hashed_password String?
   user_id         String
-  user            User_    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user            User_   @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id])
   @@map("key")
 }
-
 
 model CommandPermission {
   name     String          @id @db.VarChar(255)
@@ -50,12 +47,12 @@ model CommandPermission {
 }
 
 model commands {
-  name                String              @id @db.VarChar(255)
-  aliases             Json?               @default("[]") @db.Json
+  name                String            @id @db.VarChar(255)
+  aliases             Json?             @default("[]") @db.Json
   response            String
-  enabled             Boolean             @default(true)
-  visible             Boolean             @default(true)
-  id                  Int                 @default(autoincrement())
+  enabled             Boolean           @default(true)
+  visible             Boolean           @default(true)
+  id                  Int               @default(autoincrement())
   command_permissions CommandPermission @relation(fields: [name], references: [name], onDelete: Cascade)
 
   @@map("commands")
