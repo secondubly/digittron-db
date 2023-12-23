@@ -52,6 +52,7 @@ model commands {
   enabled             Boolean           @default(true)
   visible             Boolean           @default(true)
   id                  Int               @default(autoincrement())
+  type                CommandType       @default(CUSTOM)
   command_permissions CommandPermission @relation(fields: [name], references: [name], onDelete: Cascade)
 
   @@map("commands")
@@ -77,4 +78,9 @@ enum PermissionLevel {
   MODERATOR
   EDITOR
   BROADCASTER
+}
+
+enum CommandType {
+  DEFAULT
+  CUSTOM
 }
