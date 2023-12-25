@@ -3,4 +3,4 @@ import { Context } from "./index.d";
 
 const prisma = new PrismaClient();
 
-export const createContext = async (): Promise<Context> => ({ prisma, PermissionLevel, CommandType });
+export const createContext = async (): Promise<Context> => ({ prisma });
