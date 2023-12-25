@@ -1,4 +1,4 @@
-export { CommandType, PermissionLevel, PrismaClient } from "@prisma/client";
+export { CommandType } from "@prisma/client";
 export { Prisma } from ".prisma/client";
 
 export interface Context {
