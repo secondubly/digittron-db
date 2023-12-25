@@ -1,4 +1,4 @@
-import { CommandType, PermissionLevel, PrismaClient } from "@prisma/client";
+export { type CommandType, type PermissionLevel, PrismaClient } from "@prisma/client";
 export { Prisma } from ".prisma/client";
 
 export interface Context {
@@ -6,5 +6,3 @@ export interface Context {
 }
 
 export function createContext(): Promise<Context>;
-export type PermissionLevel = typeof PermissionLevel
-export type CommandType = typeof CommandType
