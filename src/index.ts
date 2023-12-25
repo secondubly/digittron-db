@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-export type { PermissionLevel, CommandType } from '@prisma/client'
 import { Context } from "./index.d";
 
 const prisma = new PrismaClient();
