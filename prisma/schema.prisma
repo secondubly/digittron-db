@@ -53,6 +53,7 @@ model commands {
   visible             Boolean           @default(true)
   id                  Int               @default(autoincrement())
   type                CommandType       @default(CUSTOM)
+  cooldown            Int?              @default(5)
   command_permissions CommandPermission @relation(fields: [name], references: [name], onDelete: Cascade)
 
   @@map("commands")

@@ -1,0 +1,1 @@
+ALTER TABLE "commands" ADD CONSTRAINT cooldown CHECK (cooldown >= 5 AND cooldown <= 300);
