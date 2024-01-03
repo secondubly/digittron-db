@@ -4,4 +4,4 @@ import { Context } from "./index.d";
 const prisma = new PrismaClient();
 
 export const createContext = async (): Promise<Context> => ({ prisma })
-export { $Enums } from '@prisma/client'
+export { $Enums, Prisma } from '@prisma/client'
