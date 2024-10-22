@@ -13,7 +13,7 @@
   },
   "scripts": {
     "generate": "npx prisma migrate",
-    "postinstall": "tsc && cp src/index.d.ts dist/index.d.ts && npm run generate",
+  "postinstall": "tsc && cp src/index.d.ts dist/index.d.ts && npm run generate",
     "test": "exit 0"
   },
   "author": "secondubly",
