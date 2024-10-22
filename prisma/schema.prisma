@@ -3,6 +3,11 @@ generator client {
   binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
 }
 
+generator types {
+    provider = "prisma-types-export"
+    output   = "./prisma-types"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

@@ -20,7 +20,8 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@prisma/client": "^5.21.1",
-    "prisma": "^5.21.1"
+    "prisma": "^5.21.1",
+    "prisma-types-export": "^1.0.0"
   },
   "peerDependencies": {
     "@prisma/client": ">=5"
