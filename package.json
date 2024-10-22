@@ -2,30 +2,27 @@
   "name": "@secondubly/digittron-db",
   "version": "6.1.2",
   "description": "secondubly's server schema for digittron",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/secondubly/digittron-db.git"
   },
   "publishConfig": {
-    "@secondubly/registry": "https://npm.pkg.github.com"
+    "@secondubly/registry": "https://npm.pkg.github.com",
+    "access": "public"
   },
   "scripts": {
-    "db:introspect": "dotenv -- prisma db pull",
-    "db:generate": "dotenv -- prisma migrate",
-    "postinstall": "npx prisma generate && tsc && cp src/index.d.ts dist/index.d.ts",
+    "generate": "npx prisma migrate",
+    "postinstall": "npm run generate",
     "test": "exit 0"
   },
   "author": "secondubly",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
-    "@types/node": "^20.10.0",
-    "dotenv-cli": "^7.3.0",
-    "prisma": "^5.6.0",
-    "typescript": "^5.3.2"
+    "@prisma/client": "^5.21.1",
+    "prisma": "^5.21.1"
   },
-  "dependencies": {
-    "@prisma/client": "^5.6.0"
+  "peerDependencies": {
+    "@prisma/client": ">=5"
   }
 }
